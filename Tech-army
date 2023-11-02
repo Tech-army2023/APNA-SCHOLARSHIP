@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-size: 20px;
+        }
+        
+        nav ul {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0099ff;
+        }
+        
+        nav li {
+            float: left;
+        }
+        
+        nav li a {
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        nav li a:hover {
+            background-color: #ddd;
+        }
+        
+        nav li.active {
+            background-color: #09dbfb;
+        }
+        
+        /* Dropdown Styles */
+        nav li ul {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        nav li:hover ul {
+            display: block;
+        }
+        
+        nav li ul li {
+            float: none;
+        }
+        
+        nav li ul li a {
+            padding: 12px 16px;
+            color: #333;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        nav li ul li a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <title>APNA-SCHOLARSHIP</title>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#">Scholarship</a>
+                <ul>
+                    <li><a href="#">SVMCS</a></li>
+                    <li><a href="#">KANYASHREE</a></li>
+                    <li><a href="#">OASIS</a></li>
+                    <li><a href="#">GOOGLE-VPMS</a></li>
+
+                </ul>
+            </li>
+            <li><a href="#">Personalized AI Chatbot</a></li>
+            <li><a href="#">Financial Calculator</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Contact US</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
