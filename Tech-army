@@ -1,3 +1,11 @@
+// Comment
+    Team: Tech- Army
+    Subham Sharma: CODING and PPt
+    Swapnonil Chowdhury: Photo Editing
+    Rajesh Yadav: Photo Editing
+    Suranjana Paul: Data Research
+    Diya Ghost: Data Research
+//
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,16 +13,50 @@
         body {
             font-size: 20px;
         }
+        .slideshow-container {
+        position: relative;
+        margin: auto;
+        max-width: 1000px;
+    }
+
+    .slideshow-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Updated Animation Styles */
+    .slide {
+        animation: slide 2s ease-in-out infinite;
+    }
+
+    @keyframes slide {
+        0% {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        25% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        75% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+    }
         
         nav ul {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #0099ff;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #0099ff;
         }
         
         nav li {
@@ -66,10 +108,21 @@
         nav li ul li a:hover {
             background-color: #ddd;
         }
+        
+        /* Image Styles */
+        .image-container {
+            text-align: center;
+        }
+        
+        .image-container img {
+            display: block;
+            margin: 0 auto;
+            position: right;
+        }
+        
     </style>
 </head>
 <body>
-    <title>APNA-SCHOLARSHIP</title>
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
@@ -80,15 +133,39 @@
                     <li><a href="#">KANYASHREE</a></li>
                     <li><a href="#">OASIS</a></li>
                     <li><a href="#">GOOGLE-VPMS</a></li>
-
                 </ul>
             </li>
             <li><a href="#">Personalized AI Chatbot</a></li>
             <li><a href="#">Financial Calculator</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="C:\Users\tindh\Desktop\S. AUTO\login1.html">Login</a></li>
+            <li><a href="C:\Users\tindh\Desktop\S. AUTO\login1.html">Register</a></li>
             <li><a href="#">Contact US</a></li>
         </ul>
     </nav>
+    <div class="slideshow-container">
+        <img class="slide" src="https://studentshiksha.in/wp-content/uploads/2023/05/white-blue-yellow-modern-online-Webinar-Banner-Landscape-2.png" alt="Landscape 1">
+        <img class="slide" src="https://petal.miami.edu/_assets/images/resources/ai-guidance-1250x507" alt="">
+        <img class="slide" src="https://media.getmyuni.com/azure/college-images-test/siliguri-institute-of-technology-darjeeling/447152abbf564637889ad1c784d648ec.jpeg" alt="">
+        <!-- Add more images as needed -->
+    </div>
+    <script>
+        // JavaScript code for slideshow animation
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("fade");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 2000); // Change slide every 2 seconds
+        }
+    </script>
 </body>
 </html>
