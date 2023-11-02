@@ -14,39 +14,57 @@
             font-size: 20px;
         }
         .slideshow-container {
-        position: relative;
-        margin: auto;
-        max-width: 1000px;
-    }
+            position: relative;
+            overflow: hidden;
+            height: 50PX;
+            max-width: 1000px;
+        }
+        .slideshow-text {
+position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
+  animation: slide 10s infinite;
+        }
+        @keyframes slide {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 0;
+  }
+}
 
-    .slideshow-container img {
-        width: 100%;
-        height: auto;
-    }
+        .slideshow-container img {
+            width: 1000%;
+            height: auto;
+        }
 
-    /* Updated Animation Styles */
-    .slide {
-        animation: slide 2s ease-in-out infinite;
-    }
+        /* Updated Animation Styles */
+        .slide {
+            animation: slide 2s ease-in-out infinite;
+        }
 
-    @keyframes slide {
-        0% {
-            opacity: 0;
-            transform: translateX(100%);
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            25% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            75% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
         }
-        25% {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        75% {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        100% {
-            opacity: 0;
-            transform: translateX(-100%);
-        }
-    }
         
         nav ul {
             display: flex;
@@ -143,37 +161,51 @@
             <li><a href="#">Contact US</a></li>
         </ul>
     </nav>
+
     <div class="slideshow-container">
-        <div class="mySlides fade">
-          <img src="C:\Users\tindh\Desktop\S. AUTO\AS.JPG" style="width:100%">
+        <div class="slideshow-text">
+            <h1>Slide 1</h1>
+            <p>Some text for slide 1</p>
+          </div>
+          <div class="slideshow-text">
+            <h1>Slide 2</h1>
+            <p>Some text for slide 2</p>
+          </div>
+          <div class="slideshow-text">
+            <h1>Slide 3</h1>
+            <p>Some text for slide 3</p>
+          </div>
         </div>
-      
         <div class="mySlides fade">
-          <img src="img2.jpg" style="width:100%">
+            <img src="c:\Users\tindh\Desktop\S. AUTO\AS.jpg" style="width:100%">
         </div>
-      
+
         <div class="mySlides fade">
-          <img src="img3.jpg" style="width:100%">
+            <img src="img2.jpg" style="width:100%">
         </div>
-      </div>
+
+        <div class="mySlides fade">
+            <img src="img3.jpg" style="width:100%">
+        </div>
+    </div>
     <script>
         // JavaScript code for slideshow animation
         var slideIndex = 0;
-  showSlides();
+        showSlides();
 
-  function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {
-      slideIndex = 1
-    }
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 5000); // Change image every 5 seconds
-  }
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
         
     </script>
     <script>
