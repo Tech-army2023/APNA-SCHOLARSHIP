@@ -123,6 +123,7 @@
     </style>
 </head>
 <body>
+
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
@@ -133,10 +134,9 @@
                     <li><a href="#">KANYASHREE</a></li>
                     <li><a href="#">OASIS</a></li>
                     <li><a href="#">GOOGLE-VPMS</a></li>
-                    <li><a href="#">Microsoft Scholarship </a></li> 
                 </ul>
             </li>
-            <li><a href="#">Personalized AI Chatbot</a></li>
+            <li><a href="https://www.chatbase.co/chatbot-iframe/WuuGiX7WJUSW3sIGvmjEn">Personalized AI Chatbot</a></li>
             <li><a href="#">Financial Calculator</a></li>
             <li><a href="C:\Users\tindh\Desktop\S. AUTO\login1.html">Login</a></li>
             <li><a href="C:\Users\tindh\Desktop\S. AUTO\login1.html">Register</a></li>
@@ -144,29 +144,49 @@
         </ul>
     </nav>
     <div class="slideshow-container">
-        <img class="slide" src="C:\Users\tindh\Desktop\S. AUTO\AS.jpg" alt="Landscape 1">
-        <img class="slide" src="https://petal.miami.edu/_assets/images/resources/ai-guidance-1250x507" alt="">
-        <img class="slide" src="https://media.getmyuni.com/azure/college-images-test/siliguri-institute-of-technology-darjeeling/447152abbf564637889ad1c784d648ec.jpeg" alt="">
-        <!-- Add more images as needed -->
-    </div>
+        <div class="mySlides fade">
+          <img src="C:\Users\tindh\Desktop\S. AUTO\AS.JPG" style="width:100%">
+        </div>
+      
+        <div class="mySlides fade">
+          <img src="img2.jpg" style="width:100%">
+        </div>
+      
+        <div class="mySlides fade">
+          <img src="img3.jpg" style="width:100%">
+        </div>
+      </div>
     <script>
         // JavaScript code for slideshow animation
         var slideIndex = 0;
-        showSlides();
+  showSlides();
 
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("fade");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {
-                slideIndex = 1;
-            }
-            slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 2000); // Change slide every 2 seconds
-        }
+  function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+      slideIndex = 1
+    }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 5000); // Change image every 5 seconds
+  }
+        
     </script>
+    <script>
+        window.embeddedChatbotConfig = {
+        chatbotId: "WuuGiX7WJUSW3sIGvmjEn",
+        domain: "www.chatbase.co"
+        }
+        </script>
+        <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="WuuGiX7WJUSW3sIGvmjEn"
+        domain="www.chatbase.co"
+        defer>
+        </script>
 </body>
 </html>
