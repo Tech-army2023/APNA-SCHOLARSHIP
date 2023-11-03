@@ -4,22 +4,18 @@ This is a website with a slideshow, a video, and a chatbot.
 Slideshow:
 The slideshow uses JavaScript to animate between five  images. The current slide is controlled by the currentSlide variable. The changeSlide() function is used to move to the next or previous slide.
 
-Video
-The video is played on a loop and muted by default. The video-container CSS class is used to center the video and make it responsive.
 
-Chatbot
+Chatbot:
 The chatbot is embedded using the Chatbase.co. The window.embeddedChatbotConfig object is used to configure the chatbot.
 
-Usage
+Usage:
 To use this code, simply copy and paste it into an HTML file and save it. Then, open the file in a web browser to view the website.
 
 Customization
 You can customize the website by changing the images in the slideshow, the video, and the chatbot configuration. You can also add additional CSS and JavaScript to customize the look and feel of the website.
 
 Notes
-The video file must be in the same directory as the HTML file.
 The Chatbase SDK must be included in the HTML file before the script element that embeds the chatbot.
-The video-container CSS class is required to center the video and make it responsive.
 
 Acknowledgement:the libraries and tools that you used is chatbase.co
 
@@ -56,9 +52,6 @@ Q: How do I change the images in the slideshow?
 
 A: To change the images in the slideshow, simply replace the src attribute of the img elements in the slide elements.
 
-Q: How do I change the video that is played?
-
-A: To change the video that is played, replace the src attribute of the video element in the video-container element.
 
 Q: How do I change the chatbot configuration?
 
