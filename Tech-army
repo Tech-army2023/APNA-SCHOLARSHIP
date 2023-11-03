@@ -10,215 +10,642 @@
 <html>
 <head>
     <style>
-        body {
-            font-size: 20px;
-        }
-        .slideshow-container {
-            position: relative;
-            overflow: hidden;
-            height: 50PX;
-            max-width: 1000px;
-        }
-        .slideshow-text {
-position: absolute;
-  top: 0;
-  right: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: #f2f2f2;
-  animation: slide 10s infinite;
-        }
-        @keyframes slide {
-  0% {
-    right: -100%;
-  }
-  100% {
-    right: 0;
-  }
+      body {
+    font-size: 20px;
 }
 
-        .slideshow-container img {
-            width: 1000%;
-            height: auto;
-        }
+nav ul {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    height: 50;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0099ff;
+}
 
-        /* Updated Animation Styles */
-        .slide {
-            animation: slide 2s ease-in-out infinite;
-        }
+nav li {
+    float: left;
+}
 
-        @keyframes slide {
-            0% {
-                opacity: 0;
-                transform: translateX(100%);
-            }
-            25% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-            75% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-            100% {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #0099ff;
-        }
-        
-        nav li {
-            float: left;
-        }
-        
-        nav li a {
-            display: block;
-            color: #333;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        
-        nav li a:hover {
-            background-color: #ddd;
-        }
-        
-        nav li.active {
-            background-color: #09dbfb;
-        }
-        
-        /* Dropdown Styles */
-        nav li ul {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        
-        nav li:hover ul {
-            display: block;
-        }
-        
-        nav li ul li {
-            float: none;
-        }
-        
-        nav li ul li a {
-            padding: 12px 16px;
-            color: #333;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        
-        nav li ul li a:hover {
-            background-color: #ddd;
-        }
-        
-        /* Image Styles */
-        .image-container {
-            text-align: center;
-        }
-        
-        .image-container img {
-            display: block;
-            margin: 0 auto;
-            position: right;
-        }
-        
+nav li a {
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #ddd;
+}
+
+nav li.active {
+    background-color: #09dbfb;
+}
+
+/* Dropdown Styles */
+nav li ul {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+nav li:hover ul {
+    display: block;
+}
+
+nav li ul li {
+    float: none;
+}
+
+nav li ul li a {
+    padding: 12px 16px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+nav li ul li a:hover {
+    background-color: #ddd;
+}
+
+.marquee {
+    width: 100%;
+    height: 50px;
+    background-color: #ebeef1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee a {
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    padding: 14px 16px;
+}
+
+.marquee a:hover {
+    background-color: #ddd;
+}
+
+/* Slider Styles */
+.slides {
+    padding: 0;
+    width: 100%;
+    height: 35px;
+    display: block;
+    margin: 50px auto 0;
+    position: relative;
+}
+
+.slides * {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide-container {
+    display: block;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 10px;
+}
+
+.slide {
+    top: 0;
+    opacity: 1;
+    width: 100%;
+    height: 310px;
+    display: block;
+    position: absolute;
+    transform: scale(0);
+    transition: all .7s ease-in-out;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.slide img {
+    width: 100%;
+    height: 150%;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.nav label {
+    width: 100px;
+    height: 100%;
+    display: none;
+    position: absolute;
+    opacity: 0;
+    z-index: 9;
+    cursor: pointer;
+    transition: opacity .2s;
+    color: #FFF;
+    font-size: 156pt;
+    text-align: center;
+    line-height: 180px;
+    font-family: "Varela Round", sans-serif;
+    background-color: rgba(255, 255, 255, .3);
+    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+}
+
+.slide:hover+.nav label {
+    opacity: 0.5;
+}
+
+.nav label:hover {
+    opacity: 1;
+}
+
+.nav .next {
+    right: 0;
+}
+
+input:checked+.slide-container .slide {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out;
+}
+
+input:checked+.slide-container .nav label {
+    display: block;
+}
+
+.nav-dots {
+    width: 100%;
+    bottom: 9px;
+    height: 11px;
+    display: block;
+    position: absolute;
+    text-align: center;
+}
+
+.nav-dots .nav-dot {
+    top: -5px;
+    width: 11px;
+    height: 11px;
+    margin: 0 4px;
+    position: relative;
+    border-radius: 100%;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.nav-dots .nav-dot:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+input#img-1:checked~.nav-dots label#img-dot-1,
+input#img-2:checked~.nav-dots label#img-dot-2,
+input#img-3:checked~.nav-dots label#img-dot-3 {
+    background: rgba(0, 0, 0, 0.8);
+}
     </style>
 </head>
 <body>
-
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
             <li>
                 <a href="#">Scholarship</a>
                 <ul>
-                    <li><a href="#">SVMCS</a></li>
-                    <li><a href="#">KANYASHREE</a></li>
-                    <li><a href="#">OASIS</a></li>
+                    <li><a href="https://svmcm.wbhed.gov.in/">SVMCS</a></li>
+                    <li><a href="https://www.wbkanyashree.gov.in/kp_scheme.php">KANYASHREE</a></li>
+                    <li><a href="https://oasis.gov.in/">OASIS</a></li>
                     <li><a href="#">GOOGLE-VPMS</a></li>
                 </ul>
             </li>
             <li><a href="https://www.chatbase.co/chatbot-iframe/WuuGiX7WJUSW3sIGvmjEn">Personalized AI Chatbot</a></li>
             <li><a href="#">Financial Calculator</a></li>
-            <li><a href="C:\Users\tindh\Desktop\S. AUTO\login1.html">Login</a></li>
-            <li><a href="C:\Users\tindh\Desktop\S. AUTO\login1.html">Register</a></li>
+            <li><a href="C:\Users\tindh\Desktop\S. AUTO\login.html">Login</a></li>
+            <li><a href="C:\Users\tindh\Desktop\S. AUTO\login.html">Register</a></li>
             <li><a href="#">Contact US</a></li>
         </ul>
     </nav>
-
-    <div class="slideshow-container">
-        <div class="slideshow-text">
-            <h1>Slide 1</h1>
-            <p>Some text for slide 1</p>
-          </div>
-          <div class="slideshow-text">
-            <h1>Slide 2</h1>
-            <p>Some text for slide 2</p>
-          </div>
-          <div class="slideshow-text">
-            <h1>Slide 3</h1>
-            <p>Some text for slide 3</p>
-          </div>
-        </div>
-        <div class="mySlides fade">
-            <img src="c:\Users\tindh\Desktop\S. AUTO\AS.jpg" style="width:100%">
-        </div>
-
-        <div class="mySlides fade">
-            <img src="img2.jpg" style="width:100%">
-        </div>
-
-        <div class="mySlides fade">
-            <img src="img3.jpg" style="width:100%">
-        </div>
+    <div class="marquee">
+        <marquee behavior="scroll" direction="left">
+            <a href="https://svmcm.wbhed.gov.in/">Latest News: Application open for Swami Vivekananda Scholarship 2023-24 studying in Class 10 to 12, Diploma, IT, UG, PG, B.Tech, MBBS</a>
+            <a href="https://www.sbifoundation.in/focus-area-detail/SBIF-Asha-Scholarship"> Application open for SBIF ASHA SCHOLARSHIP PROGRAM for school student studying in class 6 to 12</a>
+        </marquee>
     </div>
-    <script>
-        // JavaScript code for slideshow animation
-        var slideIndex = 0;
-        showSlides();
 
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {
-                slideIndex = 1
-            }
-            slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 5000); // Change image every 5 seconds
-        }
+    <div class="slides">
+        <!-- Slide 1 -->
+        <input type="radio" name="radio-btn" id="img-1" checked />
+        <li class="slide-container">
+            <div class="slide">
+                <img src="C:\Users\tindh\Desktop\S. AUTO/AS.jpg" />
+            </div>
+            <div class="nav">
+                <label for="img-3" class="prev">&#x2039;</label>
+                <label for="img-2" class="next">&#x203a;</label>
+            </div>
+        </li>
+
+        <!-- Slide 2 -->
+        <input type="radio" name="radio-btn" id="img-2" />
+        <li class="slide-container">
+            <div class="slide">
+                <img src="C:\Users\tindh\Desktop\S. AUTO/IMG1.jpg" />
+            </div>
+            <div class="nav">
+                <label for="img-1" class="prev">&#x2039;</label>
+                <label for="img-3" class="next">&#x203a;</label>
+            </div>
+        </li>
+
+        <!-- Slide 3 -->
+        <input type="radio" name="radio-btn" id="img-3" />
+        <li class="slide-container">
+            <div class="slide">
+                <img src="C:\Users\tindh\Desktop\S. AUTO\img4.jpg" />
+            </div>
+            <div class="nav">
+                <label for="img-2" class="prev">&#x2039;</label>
+                <label for="img-1" class="next">&#x203a;</label>
+            </div>
+        </li>
+
+        <!-- Navigation Dots -->
+        <li class="nav-dots">
+            <label class="nav-dot" id="img-dot-1" onclick="changeSlide(0)"></label>
+            <label class="nav-dot" id="img-dot-2" onclick="changeSlide(1)"></label>
+            <label class="nav-dot" id="img-dot-3" onclick="changeSlide(2)"></label>
+        </li>
         
-    </script>
+    </div>
+    
+
     <script>
-        window.embeddedChatbotConfig = {
-        chatbotId: "WuuGiX7WJUSW3sIGvmjEn",
-        domain: "www.chatbase.co"
-        }
-        </script>
-        <script
-        src="https://www.chatbase.co/embed.min.js"
-        chatbotId="WuuGiX7WJUSW3sIGvmjEn"
-        domain="www.chatbase.co"
-        defer>
-        </script>
+       // JavaScript code for slideshow animation
+var currentSlide = 0;
+
+function changeSlide(n) {
+    var slides = document.getElementsByClassName("slide");
+    var dots = document.getElementsByClassName("nav-dot");
+
+    // Hide all slides
+    for (var i = 0; i < slides.length; i++) {
+        slides[i].style.opacity = 0;
+    }
+
+    currentSlide += n;
+
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+
+    // Display the current slide
+    slides[currentSlide].style.opacity = 1;
+
+    // Update the navigation dots
+    for (var i = 0; i < dots.length; i++) {
+        dots[i].style.backgroundColor = "rgba(0, 0, 0, 0.6)";
+    }
+    dots[currentSlide].style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+}
+</script>
+<script>
+window.embeddedChatbotConfig = {
+chatbotId: "WuuGiX7WJUSW3sIGvmjEn",
+domain: "www.chatbase.co"
+}
+</script>
+<script
+src="https://www.chatbase.co/embed.min.js"
+chatbotId="WuuGiX7WJUSW3sIGvmjEn"
+domain="www.chatbase.co"
+defer>
+</script>
+</script>
+</script>
+
+</body>
+</html>
+
+login page 
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title>animated </title>  
+	  
+	  <style>
+	        body {background-color: #3b5998;
+				background-image: url("https://1drv.ms/i/s!As9PNL5PjOQeiVimrSSeVy89SKJx?e=KqnTgQ");
+			background-repeat: no-repeat;
+			background-size: cover;
+				
+			
+		}
+	
+		
+
+		.container {
+			
+			position: absolute;
+			width: auto;
+			height: auto;
+			top: calc(50% - 240px);
+			left: calc(50% - 160px);
+		}
+		
+
+		form {
+			position: absolute;
+			text-align: center;
+			background: #fff;
+			width: 310px;
+			height: 500px;
+			border-radius: 5px;
+			padding: 30px 20px 0 20px;
+			box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.25);
+			box-sizing: border-box;
+		}
+
+		p {
+			font-family: 'Roboto', sans-serif;
+			font-weight: 100;
+			text-transform: uppercase;
+			font-size: 12px;
+			color: #87613d;
+			margin-bottom: 40px;
+		}
+
+		h3 {
+			font-family: 'Dosis';
+			font-size: 35px;
+			text-transform: uppercase;
+			color: #87613d;
+			margin-bottom: 30px;
+		}
+
+		input,
+		button {
+			outline: none !important;
+		}
+
+		button.fb {
+			border: none;
+			background: #3b5998;
+			width: 160px;
+			height: 25px;
+			font-family: 'Roboto', sans-serif;
+			font-size: 12px;
+			color: #fff;
+			text-transform: uppercase;
+			border-radius: 4px;
+			border: 1px solid #29487d;
+			cursor: pointer;
+			margin-bottom: 20px;
+			transition: all 0.3s linear;
+		}
+
+		button.fb:hover {
+			background: #fff;
+			color: #3b5998;
+		}
+
+		button.form-btn {
+			position: absolute;
+			width: 50%;
+			height: 60px;
+			bottom: 0;
+			border: 0;
+			font-family: 'Dosis';
+			font-size: 24px;
+			text-transform: uppercase;
+			cursor: pointer;
+		}
+
+		button.form-btn.sx {
+			left: 0;
+			border-radius: 0 0 0 5px;
+			background-color: rgba(255, 125, 0, 0.35);
+			color: #fff;
+			transition: all 0.3s linear;
+		}
+
+		button.form-btn.sx:hover {
+			background-color: rgba(255, 125, 0, 0.65);
+			color: #fff;
+		}
+
+		button.form-btn.sx.back {
+			background-color: rgba(0, 0, 0, 0.15);
+			transition: all 0.3s linear;
+		}
+
+		button.form-btn.sx.back:hover {
+			background-color: rgba(0, 0, 0, 0.35);
+		}
+
+		button.form-btn.dx {
+			right: 0;
+			border-radius: 0 0 5px 0;
+			background-color: #ff7d;
+			color: #fff;
+		}
+
+		input {
+			border: none;
+			border-bottom: 1px solid #ffc185;
+			width: 85%;
+			font-family: 'Roboto';
+			color: #ff7d00;
+			text-align: center;
+			font-size: 21px;
+			font-weight: 100;
+			margin-bottom: 25px;
+		}
+
+		::-webkit-input-placeholder {
+			color: #e03e0d;
+			font-family: 'Roboto';
+			font-weight: 100;
+		}
+
+		:-moz-placeholder {
+			color: #e03e0d;
+			font-family: 'Roboto';
+			font-weight: 100;
+		}
+
+		::-moz-placeholder {
+			color: #e03e0d;
+			font-family: 'Roboto';
+			font-weight: 100;
+		}
+
+		:-ms-input-placeholder {
+			color: #e03e0d;
+			font-family: 'Roboto';
+			font-weight: 100;
+		}
+
+		.signIn input,
+		.signUp .w100 {
+			width: 100%;
+		}
+
+		.signIn {
+			z-index: 1;
+			transform: perspective(100px) translate3d(100px, 0px, -30px);
+			opacity: 0.5;
+		}
+
+		.signUp {
+			z-index: 2;
+		}
+
+		.active-dx {
+			animation-name: foregrounding-dx;
+			animation-duration: 0.9s;
+			animation-fill-mode: forwards;
+		}
+
+		.active-sx {
+			animation-name: foregrounding-sx;
+			animation-duration: 0.9s;
+			animation-fill-mode: forwards;
+		}
+
+		.inactive-dx {
+			animation-name: overshadowing-dx;
+			animation-duration: 0.9s;
+			animation-fill-mode: forwards;
+		}
+
+		.inactive-sx {
+			animation-name: overshadowing-sx;
+			animation-duration: 0.9s;
+			animation-fill-mode: forwards;
+		}
+
+		@keyframes overshadowing-dx {
+			0% {
+				z-index: 2;
+				transform: perspective(100px) translate3d(0px, 0px, 0px);
+				opacity: 1;
+				box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.25);
+			}
+			100% {
+				z-index: 1;
+				transform: perspective(100px) translate3d(100px, 0px, -30px);
+				opacity: 0.5;
+				box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+			}
+		}
+
+		@keyframes overshadowing-sx {
+			0% {
+				z-index: 2;
+				transform: perspective(100px) translate3d(0px, 0px, 0px);
+				opacity: 1;
+				box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.25);
+			}
+			100% {
+				z-index: 1;
+				transform: perspective(100px) translate3d(-100px, 0px, -30px);
+				opacity: 0.5;
+				box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+			}
+		}
+
+		@keyframes foregrounding-dx {
+			0% {
+				z-index: 1;
+				transform: perspective(100px) translate3d(100px, 0px, -30px);
+				opacity: 0.5;
+			}
+			50% {
+				z-index: 2;
+				transform: perspective(100px) translate3d(400px, 0px, -30px);
+			}
+			100% {
+				z-index: 2;
+				transform: perspective(100px) translate3d(0px, 0px, 0px);
+				opacity: 1;
+			}
+		}
+
+		@keyframes foregrounding-sx {
+			0% {
+				z-index: 1;
+				transform: perspective(100px) translate3d(-100px, 0px, -30px);
+				opacity: 0.5;
+			}
+			50% {
+				z-index: 2;
+				transform: perspective(100px) translate3d(-400px, 0px, -30px);
+			}
+			100% {
+				z-index: 2;
+				transform: perspective(100px) translate3d(0px, 0px, 0px);
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+		<img src="C:\Users\prana\OneDrive\Pictures\Desktop\apna schorship.jpg">
+		<form class="signUp">
+			<h8>Create Your Account</h8>
+			<p>Just enter your email address</br>and your password to join.</p>
+			<input type="STUDENT NAME" placeholder="student name"required/>
+			<input type="HOBBY" placeholder="HOBBY"required/>
+			<input type="ACADEMIC YEAR" placeholder="ACADEMIC YEAR"required/>
+			<input class="w100" type="email" placeholder="Insert Email" required autocomplete="off" />
+			<input type="password" placeholder="Insert Password" required />
+			<input type="password" placeholder="Verify Password" required />
+		    <button class="form-btn sx log-in" type="button">Log In</button>
+			<button class="form-btn dx" type="submit">Sign Up</button>
+		</form>
+		<form class="signIn">
+			<h3>Welcome</br>Back!</h3>
+			<button class="fb" type="button">Log In With Facebook</button>
+			<p>- or -</p>
+			<input type="email" placeholder="Insert Email" autocomplete="off" required />
+			<input type="password" placeholder="Insert Password" required />
+			<button class="form-btn sx back" type="button">Back</button>
+			<button class="form-btn dx" type="submit">Log In</button>
+		</form>
+	</div>
+	<script>
+		document.querySelector(".log-in").addEventListener("click", function() {
+			document.querySelector(".signIn").classList.add("active-dx");
+			document.querySelector(".signUp").classList.add("inactive-sx");
+			document.querySelector(".signUp").classList.remove("active-sx");
+			document.querySelector(".signIn").classList.remove("inactive-dx");
+		});
+
+		document.querySelector(".back").addEventListener("click", function() {
+			document.querySelector(".signUp").classList.add("active-sx");
+			document.querySelector(".signIn").classList.add("inactive-dx");
+			document.querySelector(".signIn").classList.remove("active-dx");
+			document.querySelector(".signUp").classList.remove("inactive-sx");
+		});
+	</script>
 </body>
 </html>
