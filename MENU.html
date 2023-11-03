@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+      body {
+    font-size: 20px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    height: 50;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0099ff;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #ddd;
+}
+
+nav li.active {
+    background-color: #09dbfb;
+}
+
+/* Dropdown Styles */
+nav li ul {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+nav li:hover ul {
+    display: block;
+}
+
+nav li ul li {
+    float: none;
+}
+
+nav li ul li a {
+    padding: 12px 16px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+nav li ul li a:hover {
+    background-color: #ddd;
+}
+
+.marquee {
+    width: 100%;
+    height: 50px;
+    background-color: #ebeef1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee a {
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    padding: 14px 16px;
+}
+
+.marquee a:hover {
+    background-color: #ddd;
+}
+
+/* Slider Styles */
+.slides {
+    padding: 0;
+    width: 100%;
+    height: 35px;
+    display: block;
+    margin: 50px auto 0;
+    position: relative;
+}
+
+.slides * {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide-container {
+    display: block;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 10px;
+}
+
+.slide {
+    top: 0;
+    opacity: 1;
+    width: 100%;
+    height: 310px;
+    display: block;
+    position: absolute;
+    transform: scale(0);
+    transition: all .7s ease-in-out;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.slide img {
+    width: 100%;
+    height: 150%;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.nav label {
+    width: 100px;
+    height: 100%;
+    display: none;
+    position: absolute;
+    opacity: 0;
+    z-index: 9;
+    cursor: pointer;
+    transition: opacity .2s;
+    color: #FFF;
+    font-size: 156pt;
+    text-align: center;
+    line-height: 180px;
+    font-family: "Varela Round", sans-serif;
+    background-color: rgba(255, 255, 255, .3);
+    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+}
+
+.slide:hover+.nav label {
+    opacity: 0.5;
+}
+
+.nav label:hover {
+    opacity: 1;
+}
+
+.nav .next {
+    right: 0;
+}
+
+input:checked+.slide-container .slide {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out;
+}
+
+input:checked+.slide-container .nav label {
+    display: block;
+}
+
+.nav-dots {
+    width: 100%;
+    bottom: 9px;
+    height: 11px;
+    display: block;
+    position: absolute;
+    text-align: center;
+}
+
+.nav-dots .nav-dot {
+    top: -5px;
+    width: 11px;
+    height: 11px;
+    margin: 0 4px;
+    position: relative;
+    border-radius: 100%;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.nav-dots .nav-dot:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+input#img-1:checked~.nav-dots label#img-dot-1,
+input#img-2:checked~.nav-dots label#img-dot-2,
+input#img-3:checked~.nav-dots label#img-dot-3 {
+    background: rgba(0, 0, 0, 0.8);
+}
+.marquee-container {
+         width: 100%;
+         height: 300px;
+         position: relative;
+      }
+
+      .marquee-content {
+         position: relative;
+         top: 100;
+         animation: marquee-animation 10s linear infinite;
+      }
+
+      @keyframes marquee-animation {
+         0% {
+            transform: translateY(0);
+         }
+         100% {
+            transform: translateY(-100%);
+         }
+      }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#">Scholarship</a>
+                <ul>
+                    <li><a href="https://svmcm.wbhed.gov.in/">SVMCS</a></li>
+                    <li><a href="https://www.wbkanyashree.gov.in/kp_scheme.php">KANYASHREE</a></li>
+                    <li><a href="https://oasis.gov.in/">OASIS</a></li>
+                    <li><a href="#">GOOGLE-VPMS</a></li>
+                </ul>
+            </li>
+            <li><a href="https://www.chatbase.co/chatbot-iframe/WuuGiX7WJUSW3sIGvmjEn">Personalized AI Chatbot</a></li>
+            <li><a href="#">Financial Calculator</a></li>
+            <li><a href="C:\Users\tindh\Desktop\S. AUTO\login.html">Login</a></li>
+            <li><a href="C:\Users\tindh\Desktop\S. AUTO\login.html">Register</a></li>
+            <li><a href="#">Contact US</a></li>
+        </ul>
+    </nav>
+    <div class="marquee">
+        <marquee behavior="scroll" direction="left">
+            <a href="https://svmcm.wbhed.gov.in/">Latest News: Application open for Swami Vivekananda Scholarship 2023-24 studying in Class 10 to 12, Diploma, IT, UG, PG, B.Tech, MBBS</a>
+            <a href="https://www.sbifoundation.in/focus-area-detail/SBIF-Asha-Scholarship"> Application open for SBIF ASHA SCHOLARSHIP PROGRAM for school student studying in class 6 to 12</a>
+        </marquee>
+    </div>
+
+    <div class="slides">
+        <!-- Slide 1 -->
+        <input type="radio" name="radio-btn" id="img-1" checked />
+        <li class="slide-container">
+            <div class="slide">
+                <img src="C:\Users\tindh\Desktop\S. AUTO/AS.jpg" />
+            </div>
+            <div class="nav">
+                <label for="img-3" class="prev">&#x2039;</label>
+                <label for="img-2" class="next">&#x203a;</label>
+            </div>
+        </li>
+
+        <!-- Slide 2 -->
+        <input type="radio" name="radio-btn" id="img-2" />
+        <li class="slide-container">
+            <div class="slide">
+                <img src="C:\Users\tindh\Desktop\S. AUTO/IMG1.jpg" />
+            </div>
+            <div class="nav">
+                <label for="img-1" class="prev">&#x2039;</label>
+                <label for="img-3" class="next">&#x203a;</label>
+            </div>
+        </li>
+
+        <!-- Slide 3 -->
+        <input type="radio" name="radio-btn" id="img-3" />
+        <li class="slide-container">
+            <div class="slide">
+                <img src="C:\Users\tindh\Desktop\S. AUTO\img4.jpg" />
+            </div>
+            <div class="nav">
+                <label for="img-2" class="prev">&#x2039;</label>
+                <label for="img-1" class="next">&#x203a;</label>
+            </div>
+        </li>
+    </div>
+    <div class="marquee-container">
+    <div class="marquee-content">
+       <p>This is the marquee content.</p>
+    </div>
+ </div>
+    <script>
+        window.embeddedChatbotConfig = {
+        chatbotId: "WuuGiX7WJUSW3sIGvmjEn",
+        domain: "www.chatbase.co"
+        }
+        </script>
+        <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="WuuGiX7WJUSW3sIGvmjEn"
+        domain="www.chatbase.co"
+        defer>
+        </script>
+</body>
+</html>
